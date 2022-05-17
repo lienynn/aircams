@@ -11,12 +11,12 @@ class CamerasController < ApplicationController
     @camera = Camera.find(params[:id])
   end
 
-  # def update
-  #   @camera = Camera.find(params[:id])
-  #   @camera.update(camera_params)
+  def update
+    @camera = Camera.find(params[:id])
+    @camera.update(camera_params)
 
-  #   redirect_to camera_path(@camera)
-  # end
+    redirect_to camera_path(@camera)
+  end
 
   # def destroy
   #   @camera = Camera.find(params[:id])
@@ -36,10 +36,9 @@ class CamerasController < ApplicationController
   #   redirect_to camera_path(@camera)
   # end
 
-  # private
+  private
 
-  # def camera_params
-  #   params.require(:camera).permit(:model, :zip_code, :price_per_day, :details)
-  # end
-
+  def camera_params
+    params.require(:camera).permit(:model, :zip_code, :price_per_day, :details)
+  end
 end

@@ -1,12 +1,15 @@
 <h1>All available Cameras</h1>
 
-  <% <% @cameras.each do |camera| %> %>
+  <% @cameras.each do |camera| %>
     <div class="card-product">
       <img src="#" />
       <div class="card-product-infos">
         <h2><%= link_to camera.model, camera_path(camera) %></h2>
         <p><%= camera.details %></p>
-        <p></p>
+        <p><%= link_to "edit", edit_camera_path(camera) %></p>
+        <p><%= link_to "remove",cameras_path,
+            method: :delete,
+            data: { confirm: "Are you sure?" } %></p>
       </div>
     </div>
   <% end %>

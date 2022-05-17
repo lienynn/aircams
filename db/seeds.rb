@@ -6,6 +6,18 @@ require 'faker'
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+User.create({
+  email: "a@a.a",
+  password: "secret"
+  })
+
+User.create({
+  email: "a@a.a",
+  password: "secret"
+  })
+
 Camera.create(
   {
     model: "Canon",
@@ -13,14 +25,5 @@ Camera.create(
     zip_code: "h2l3t4",
     details: "State: like new, 5mm lense. Film available to buy everywhere. Solid make perfetc for traveling.",
     user_id: 1
-  }
-)
-
-Rental.create(
-  {
-    user_id: 2,
-    camera_id: 1,
-    start_date: Date.today,
-    end_date: Faker::Date.forward(days: 10)
   }
 )

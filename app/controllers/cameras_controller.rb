@@ -18,12 +18,13 @@ class CamerasController < ApplicationController
   #   redirect_to camera_path(@camera)
   # end
 
-  # def destroy
-  #   @camera = Camera.find(params[:id])
-  #   @camera.destroy
+  def destroy
+    @camera = Camera.find(params[:id])
+    @camera.destroy
 
-  #   redirect_to cameras_path
-  # end
+    redirect_to cameras_path
+
+  end
 
   # def new
   #   @camera = Camera.new

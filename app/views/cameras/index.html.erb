@@ -1,0 +1,12 @@
+<h1>All available Cameras</h1>
+
+  <% <% @cameras.each do |camera| %> %>
+    <div class="card-product">
+      <img src="#" />
+      <div class="card-product-infos">
+        <h2><%= link_to camera.model, camera_path(camera) %></h2>
+        <p><%= camera.details %></p>
+        <p></p>
+      </div>
+    </div>
+  <% end %>

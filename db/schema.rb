@@ -26,6 +26,18 @@ ActiveRecord::Schema.define(version: 2022_05_16_205743) do
     t.index ["user_id"], name: "index_cameras_on_user_id"
   end
 
+  create_table "rentals", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "camera_id", null: false
+    t.date "start_date"
+    t.date "end_date"
+    t.integer "status", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["camera_id"], name: "index_rentals_on_camera_id"
+    t.index ["user_id"], name: "index_rentals_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -41,4 +53,6 @@ ActiveRecord::Schema.define(version: 2022_05_16_205743) do
   end
 
   add_foreign_key "cameras", "users"
+  add_foreign_key "rentals", "cameras"
+  add_foreign_key "rentals", "users"
 end

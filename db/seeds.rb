@@ -1,21 +1,20 @@
 require 'faker'
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+puts 'cleaning database'
+Rental.destroy_all
+Camera.destroy_all
+User.destroy_all
+puts 'db cleaned'
 
 # users
-user_one = User.create(
+puts 'creating users'
+p user_one = User.create!(
   {
     email: "g@g.g",
     password: "secret"
   }
 )
 
-user_two = User.create(
+p user_two = User.create!(
   {
     email: "p@p.p",
     password: "secret"
@@ -23,6 +22,7 @@ user_two = User.create(
 )
 
 # cameras
+puts 'creating cameras'
 camera_one = Camera.new(
   {
     model: "Canon",
@@ -31,8 +31,8 @@ camera_one = Camera.new(
     details: "State: like new, 5mm lense. Film available to buy everywhere. Solid make perfetc for traveling."
   }
 )
-camera_one.user_id = user_one
-camera_one.save
+camera_one.user = user_one
+p camera_one.save!
 
 camera_two = Camera.new(
   {
@@ -42,8 +42,8 @@ camera_two = Camera.new(
     details: "Vintage camera. Awesome for old pictures like style."
   }
 )
-camera_two.user_id = user_one
-camera_two.save
+camera_two.user = user_two
+p camera_two.save!
 
 camera_three = Camera.new(
   {
@@ -53,8 +53,8 @@ camera_three = Camera.new(
     details: "Brand new, comes with all types of lenses."
   }
 )
-camera_three.user_id = user_two
-camera_three.save
+camera_three.user = user_two
+camera_three.save!
 
 camera_four = Camera.new(
   {
@@ -64,8 +64,8 @@ camera_four = Camera.new(
     details: "Nice camera. Perfect for travel memories and night pictures."
   }
 )
-camera_four.user_id = user_one
-camera_four.save
+camera_four.user = user_one
+camera_four.save!
 
 camera_five = Camera.new(
   {
@@ -75,32 +75,37 @@ camera_five = Camera.new(
     details: "Perfect for sightseeing! Good picture quality."
   }
 )
-camera_five.user_id = user_one
-camera_five.save
+camera_five.user = user_one
+camera_five.save!
 
 # # rentals
-# rental_one = Rental.new(
-#   {
-#     start_date: Date.today,
-#     end_date: Faker::Date.forward(days: 10)
-#   }
-# )
+rental_one = Rental.new(
+  {
+    start_date: Date.today,
+    end_date: Faker::Date.forward(days: 10)
+  }
+)
+rental_one.user = user_two
+rental_one.camera = camera_one
+rental_one.save!
 
-# rental_two = Rental.new(
-#   {
-#     start_date: Date.today,
-#     end_date: Faker::Date.forward(days: 5)
-#   }
-# )
+rental_two = Rental.new(
+  {
+    start_date: Date.today,
+    end_date: Faker::Date.forward(days: 5)
+  }
+)
+rental_two.user = user_one
+rental_two.camera = camera_two
+rental_two.save!
 
-# rental_three = Rental.new(
-#   {
-#     start_date: Date.today,
-#     end_date: Faker::Date.forward(days: 20)
-#   }
-# )
+rental_three = Rental.new(
+  {
+    start_date: Date.today,
+    end_date: Faker::Date.forward(days: 20)
+  }
+)
 
-# rental_one.user = user_one
-# rental_one.camera = camera_one
-
-# rental_two.user = user_one
+rental_three.user = user_two
+rental_three.camera = camera_five
+rental_three.save!

@@ -6,21 +6,101 @@ require 'faker'
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Camera.create(
+
+# users
+user_one = User.create(
+  {
+    email: "g@g.g",
+    password: "secret"
+  }
+)
+
+user_two = User.create(
+  {
+    email: "p@p.p",
+    password: "secret"
+  }
+)
+
+# cameras
+camera_one = Camera.new(
   {
     model: "Canon",
     price_per_day: 25,
     zip_code: "h2l3t4",
-    details: "State: like new, 5mm lense. Film available to buy everywhere. Solid make perfetc for traveling.",
-    user_id: 1
+    details: "State: like new, 5mm lense. Film available to buy everywhere. Solid make perfetc for traveling."
   }
 )
+camera_one.user_id = user_one
+camera_one.save
 
-Rental.create(
+camera_two = Camera.new(
   {
-    user_id: 2,
-    camera_id: 1,
-    start_date: Date.today,
-    end_date: Faker::Date.forward(days: 10)
+    model: "Nikon",
+    price_per_day: 10,
+    zip_code: "j1j3a3",
+    details: "Vintage camera. Awesome for old pictures like style."
   }
 )
+camera_two.user_id = user_one
+camera_two.save
+
+camera_three = Camera.new(
+  {
+    model: "Sony",
+    price_per_day: 20,
+    zip_code: "t5t6y6",
+    details: "Brand new, comes with all types of lenses."
+  }
+)
+camera_three.user_id = user_two
+camera_three.save
+
+camera_four = Camera.new(
+  {
+    model: "Fujifilm",
+    price_per_day: 5,
+    zip_code: "h4d0p0",
+    details: "Nice camera. Perfect for travel memories and night pictures."
+  }
+)
+camera_four.user_id = user_one
+camera_four.save
+
+camera_five = Camera.new(
+  {
+    model: "Panasonic",
+    price_per_day: 4,
+    zip_code: "a0a2h2",
+    details: "Perfect for sightseeing! Good picture quality."
+  }
+)
+camera_five.user_id = user_one
+camera_five.save
+
+# # rentals
+# rental_one = Rental.new(
+#   {
+#     start_date: Date.today,
+#     end_date: Faker::Date.forward(days: 10)
+#   }
+# )
+
+# rental_two = Rental.new(
+#   {
+#     start_date: Date.today,
+#     end_date: Faker::Date.forward(days: 5)
+#   }
+# )
+
+# rental_three = Rental.new(
+#   {
+#     start_date: Date.today,
+#     end_date: Faker::Date.forward(days: 20)
+#   }
+# )
+
+# rental_one.user = user_one
+# rental_one.camera = camera_one
+
+# rental_two.user = user_one

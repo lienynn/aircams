@@ -10,11 +10,15 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
+    <script src="https://kit.fontawesome.com/98b35dfa03.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
     <%= render "shared/navbar" %>
     <%= yield %>
+    <%= render "shared/footer" %>
     <%= render 'shared/flashes' %>
   </body>
+
 </html>

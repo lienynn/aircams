@@ -1,20 +1,26 @@
 require 'faker'
-puts 'cleaning database'
+
+# This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
+#
+# Examples:
+#
+#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+#   Character.create(name: 'Luke', movie: movies.first)
+
 Rental.destroy_all
 Camera.destroy_all
 User.destroy_all
-puts 'db cleaned'
 
 # users
-puts 'creating users'
-p user_one = User.create!(
+user_one = User.create!(
   {
     email: "g@g.g",
     password: "secret"
   }
 )
 
-p user_two = User.create!(
+user_two = User.create!(
   {
     email: "p@p.p",
     password: "secret"
@@ -22,7 +28,6 @@ p user_two = User.create!(
 )
 
 # cameras
-puts 'creating cameras'
 camera_one = Camera.new(
   {
     model: "Canon",
@@ -32,7 +37,7 @@ camera_one = Camera.new(
   }
 )
 camera_one.user = user_one
-p camera_one.save!
+camera_one.save!
 
 camera_two = Camera.new(
   {
@@ -43,7 +48,7 @@ camera_two = Camera.new(
   }
 )
 camera_two.user = user_two
-p camera_two.save!
+camera_two.save!
 
 camera_three = Camera.new(
   {
@@ -64,6 +69,7 @@ camera_four = Camera.new(
     details: "Nice camera. Perfect for travel memories and night pictures."
   }
 )
+
 camera_four.user = user_one
 camera_four.save!
 
@@ -109,3 +115,4 @@ rental_three = Rental.new(
 rental_three.user = user_two
 rental_three.camera = camera_five
 rental_three.save!
+

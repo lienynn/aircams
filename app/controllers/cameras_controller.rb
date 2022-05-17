@@ -25,21 +25,23 @@ class CamerasController < ApplicationController
   #   redirect_to cameras_path
   # end
 
-  # def new
-  #   @camera = Camera.new
-  # end
+  def new
+    @camera = Camera.new
+  end
 
-  # def create
-  #   @camera = Camera.new(camera_params)
-  #   @camera.save
+  def create
+    @camera = Camera.new(camera_params)
+    @user = current_user
+    @camera.user = @user
+    @camera.save
 
-  #   redirect_to camera_path(@camera)
-  # end
+    redirect_to camera_path(@camera)
+  end
 
-  # private
+  private
 
-  # def camera_params
-  #   params.require(:camera).permit(:model, :zip_code, :price_per_day, :details)
-  # end
+  def camera_params
+    params.require(:camera).permit(:model, :zip_code, :price_per_day, :details)
+  end
 
 end

@@ -3,7 +3,7 @@
 <% @rentals.each do |rental| %>
 
   <% if current_user == rental.user %>
-    <h2><%= rental.camera.model %></h2>
+    <h2><%= link_to rental.camera.model, rental_path(rental) %></h2>
     <p>Details: <%= rental.camera.details %></p>
     <p>From: <%= rental.start_date %></p>
     <p>Until: <%= rental.end_date %></p>

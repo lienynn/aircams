@@ -2,8 +2,10 @@
 
 <p><%= @rental.camera.model %></p>
 <p><%= @rental.camera.details %></p>
-<p>From:<%= @rental.start_date %></p>
-<p>Until:<%= @rental.end_date %></p>
+<p>From: <%= @rental.start_date %></p>
+<p>Until: <%= @rental.end_date %></p>
 
-<%#= link_to "Cancel request", %>
+<%= link_to "Cancel request", rental_path(@rental),
+              method: :delete,
+              data: { confirm: "Are you sure?" } %>
 <%= link_to "Back to cameras", cameras_path %>

@@ -23,7 +23,6 @@ class CamerasController < ApplicationController
     @camera.destroy
 
     redirect_to my_cameras_path
-
   end
 
   def new

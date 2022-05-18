@@ -1,0 +1,12 @@
+<h1>Your rentals</h1>
+
+<% @rentals.each do |rental| %>
+
+  <% if current_user == rental.user %>
+    <h2><%= rental.camera.model %></h2>
+    <p>Details: <%= rental.camera.details %></p>
+    <p>From: <%= rental.start_date %></p>
+    <p>Until: <%= rental.end_date %></p>
+  <% end %>
+
+<% end %>

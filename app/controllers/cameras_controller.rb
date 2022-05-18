@@ -13,9 +13,12 @@ class CamerasController < ApplicationController
 
   def update
     @camera = Camera.find(params[:id])
-    @camera.update(camera_params)
 
-    redirect_to camera_path(@camera)
+    if @camera.update(camera_params)
+      redirect_to camera_path(@camera)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -33,9 +36,12 @@ class CamerasController < ApplicationController
     @camera = Camera.new(camera_params)
     @user = current_user
     @camera.user = @user
-    @camera.save
 
-    redirect_to camera_path(@camera)
+    if @camera.save
+      redirect_to camera_path(@camera)
+    else
+      render :new
+    end
   end
 
   def my_cameras

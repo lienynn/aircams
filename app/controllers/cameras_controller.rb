@@ -22,7 +22,7 @@ class CamerasController < ApplicationController
     @camera = Camera.find(params[:id])
     @camera.destroy
 
-    redirect_to cameras_path
+    redirect_to my_cameras_path
 
   end
 
@@ -37,6 +37,11 @@ class CamerasController < ApplicationController
     @camera.save
 
     redirect_to camera_path(@camera)
+  end
+
+  def my_cameras
+    @cameras = Camera.where(user: current_user)
+
   end
 
   private

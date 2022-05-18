@@ -20,6 +20,7 @@
           <ul>
             <% camera.rentals.each do |rental| %>
               <li>
+                <p> Status: <%= rental.status %></p>
                 <p> By: <%= rental.user_id %></p>
                 <p> from: <%= rental.start_date %></p>
                 <p> from: <%= rental.end_date %></p>

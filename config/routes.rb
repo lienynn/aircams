@@ -8,5 +8,8 @@ Rails.application.routes.draw do
 
   get 'my_cameras', to: 'cameras#my_cameras'
 
-  resources :rentals, only: [ :index, :show, :destroy ]
+  resources :rentals, only: [ :index, :show, :destroy ] do
+    get 'acepted!', to: 'rentals#accepted!', as: :accepted
+    get 'declined!', to: 'rentals#declined!', as: :declined
+  end
 end

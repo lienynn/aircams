@@ -4,6 +4,7 @@
 <p><%= @rental.camera.details %></p>
 <p>From:<%= @rental.start_date %></p>
 <p>Until:<%= @rental.end_date %></p>
+<p>Current Status:<%= @rental.status %></p>
 
 <% if current_user == @rental.user %>
   <p>you are the Renter !</p>
@@ -13,9 +14,8 @@
               data: { confirm: "Are you sure?" } %>
   <%= link_to "Back to All cameras", cameras_path %>
 <% else %>
-  <p>Current Rental Status : <%= @rental.status %></p>
   <p>you are the Owner !</p>
-  <p>[link_to "Approve request]</p>
-  <p>[link_to "Decline request]</p>
+  <%= link_to "Approve request", rental_accepted_path(@rental) %>
+  <%= link_to "Decline request", rental_declined_path(@rental) %>
   <%= link_to "Back to my cameras", my_cameras_path %>
 <% end %>

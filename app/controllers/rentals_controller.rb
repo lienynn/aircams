@@ -30,9 +30,25 @@ class RentalsController < ApplicationController
     redirect_to rentals_path
   end
 
+  def accepted!
+    @rental = Rental.find(params[:rental_id])
+    @rental.status = 1
+    @rental.save
+
+    render :show
+  end
+
+  def declined!
+    @rental = Rental.find(params[:rental_id])
+    @rental.status = 2
+    @rental.save
+
+    render :show
+  end
+
   private
 
   def rental_params
-    params.require(:rental).permit(:start_date, :end_date)
+    params.require(:rental).permit(:start_date, :end_date, :status)
   end
 end

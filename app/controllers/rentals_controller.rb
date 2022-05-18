@@ -3,8 +3,8 @@ class RentalsController < ApplicationController
     @rentals = Rental.all
   end
 
-  def show
-  end
+  # def show
+  # end
 
   def new
   end

@@ -1,0 +1,33 @@
+<h1>My Cameras</h1>
+ <h2><%= link_to "Add A Camera", new_camera_path %></h2>
+
+  <% @cameras.each do |camera| %>
+    <div class="card-product">
+      <img src="#" />
+      <div class="card-product-infos">
+        <h2><%= link_to camera.model, camera_path(camera) %></h2>
+        <p><%= camera.details %></p>
+        <p><%= link_to "edit", edit_camera_path(camera) %></p>
+          <% if camera.rentals.blank? %>
+            <p><%= link_to "remove",
+              camera_path(camera),
+              method: :delete,
+              data: { confirm: "Are you sure?" } %>
+            </p>
+          <% end %>
+        <% if camera.rentals.exists? %>
+          <h6> Rentals :</h6>
+          <ul>
+            <% camera.rentals.each do |rental| %>
+              <li>
+                <p> Status: <%= rental.status %></p>
+                <p> By: <%= rental.user_id %></p>
+                <p> from: <%= rental.start_date %></p>
+                <p> from: <%= rental.end_date %></p>
+              </li>
+            <% end  %>
+          </ul>
+        <% end %>
+      </div>
+    </div>
+  <% end %>

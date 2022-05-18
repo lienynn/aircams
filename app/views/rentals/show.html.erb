@@ -5,5 +5,14 @@
 <p>From:<%= @rental.start_date %></p>
 <p>Until:<%= @rental.end_date %></p>
 
-<%#= link_to "Cancel request", %>
+<% if current_user = @rental.user %>
+  <p>you are the Renter !</p>
+   <p>link_to "cancel request</p>
+<% else %>
+  <%= @rental.status %>
+   <p>you are the Owner !</p>
+  <p>link_to "Approve request</p>
+  <p>link_to "Decline request</p>
+<% end %>
+
 <%= link_to "Back to cameras", cameras_path %>

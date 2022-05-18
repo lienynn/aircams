@@ -26,16 +26,18 @@ class CamerasController < ApplicationController
 
   end
 
-  # def new
-  #   @camera = Camera.new
-  # end
+  def new
+    @camera = Camera.new
+  end
 
-  # def create
-  #   @camera = Camera.new(camera_params)
-  #   @camera.save
+  def create
+    @camera = Camera.new(camera_params)
+    @user = current_user
+    @camera.user = @user
+    @camera.save
 
-  #   redirect_to camera_path(@camera)
-  # end
+    redirect_to camera_path(@camera)
+  end
 
   private
 

@@ -1,8 +1,9 @@
 <h1><%= @camera.model%></h1>
-<img src= "<%= cl_image_path (@camera.photo.key)%>">
+<% if !@camera.photo.key.nil? %>
+          <img src= "<%= cl_image_path (@camera.photo.key)%>">
+          <% end %>
 <p><%= @camera.details %></p>
 <p><%= @camera.price_per_day %></p>
 
  <p><%= link_to "Rent camera", new_camera_rental_path(params[:id]) %></p>
  <p><%= link_to "Back to the list", cameras_path %></p>
-

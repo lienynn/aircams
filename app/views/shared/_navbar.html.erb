@@ -23,10 +23,11 @@
           <li class="nav-item dropdown">
             <%= image_tag "https://e7.pngegg.com/pngimages/416/62/png-clipart-anonymous-person-login-google-account-computer-icons-user-activity-miscellaneous-computer.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <p>Welcome <%= current_user.email %>!</p>
               <%= link_to "Add a camera", new_camera_path, class: "dropdown-item" %>
               <%= link_to "Rent a camera", cameras_path , class: "dropdown-item" %>
               <%= link_to "Your cameras", "#", class: "dropdown-item" %>
-              <%= link_to "Your rentals", "#", class: "dropdown-item" %>
+              <%= link_to "Your rentals", "/rentals", class: "dropdown-item" %>
 
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>

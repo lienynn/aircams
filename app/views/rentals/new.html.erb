@@ -1,0 +1,9 @@
+<h1>Book camera</h1>
+
+<%= simple_form_for [ @camera, @rental ] do |f| %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.submit "Submit request", class: "btn btn-primary" %>
+<% end %>
+
+<%= link_to "Back to cameras", cameras_path %>

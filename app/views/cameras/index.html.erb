@@ -2,10 +2,22 @@
 
   <% @cameras.each do |camera| %>
     <div class="card-product">
-      <img src="#" />
+          <% if !camera.photo.key.nil? %>
+          <img src= "<%= cl_image_path (camera.photo.key)%>">
+          <% end %>
       <div class="card-product-infos">
         <h2><%= link_to camera.model, camera_path(camera) %></h2>
-        <p><%= camera.details %></p>
+          <p><%= camera.details %></p>
+        <% if current_user == camera.user %>
+          <p><%= link_to "edit", edit_camera_path(camera) %></p>
+          <% if camera.rentals.blank? %>
+            <p><%= link_to "remove",
+                camera_path(camera),
+                method: :delete,
+                data: { confirm: "Are you sure?" } %>
+              </p>
+            <% end %>
+        <% end %>
       </div>
     </div>
   <% end %>

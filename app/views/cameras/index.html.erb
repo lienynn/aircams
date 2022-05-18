@@ -7,16 +7,6 @@
       <div class="card-product-infos">
         <h2><%= link_to camera.model, camera_path(camera) %></h2>
         <p><%= camera.details %></p>
-        <% if current_user == camera.user %>
-          <p><%= link_to "edit", edit_camera_path(camera) %></p>
-          <% if camera.rentals.blank? %>
-            <p><%= link_to "remove",
-                camera_path(camera),
-                method: :delete,
-                data: { confirm: "Are you sure?" } %>
-              </p>
-            <% end %>
-        <% end %>
       </div>
     </div>
   <% end %>

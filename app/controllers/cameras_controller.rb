@@ -39,6 +39,11 @@ class CamerasController < ApplicationController
     redirect_to camera_path(@camera)
   end
 
+  def my_cameras
+    @cameras = Camera.where(user: current_user)
+
+  end
+
   private
 
   def camera_params

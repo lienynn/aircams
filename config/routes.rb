@@ -6,5 +6,7 @@ Rails.application.routes.draw do
     resources :rentals, only: [ :new, :create ]
   end
 
+  get 'my_cameras', to: 'cameras#my_cameras'
+
   resources :rentals, only: [ :index, :show, :destroy ]
 end

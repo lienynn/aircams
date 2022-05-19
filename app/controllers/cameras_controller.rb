@@ -5,7 +5,9 @@ class CamerasController < ApplicationController
     @markers = @cameras.geocoded.map do |camera|
       {
         lat: camera.latitude,
-        lng: camera.longitude
+        lng: camera.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { camera: camera }),
+        image_url: helpers.asset_url("logo-camera-icon-or-logo.png")
       }
     end
   end

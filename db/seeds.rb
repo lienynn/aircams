@@ -32,7 +32,7 @@ camera_one = Camera.new(
   {
     model: "Canon",
     price_per_day: 25,
-    zip_code: "h2l3t4",
+    address: "h2l3t4",
     details: "State: like new, 5mm lense. Film available to buy everywhere. Solid make perfetc for traveling."
   }
 )
@@ -43,7 +43,7 @@ camera_two = Camera.new(
   {
     model: "Nikon",
     price_per_day: 10,
-    zip_code: "j1j3a3",
+    address: "j1j3a3",
     details: "Vintage camera. Awesome for old pictures like style."
   }
 )
@@ -54,7 +54,7 @@ camera_three = Camera.new(
   {
     model: "Sony",
     price_per_day: 20,
-    zip_code: "t5t6y6",
+    address: "t5t6y6",
     details: "Brand new, comes with all types of lenses."
   }
 )
@@ -65,7 +65,7 @@ camera_four = Camera.new(
   {
     model: "Fujifilm",
     price_per_day: 5,
-    zip_code: "h4d0p0",
+    address: "h4d0p0",
     details: "Nice camera. Perfect for travel memories and night pictures."
   }
 )
@@ -77,7 +77,7 @@ camera_five = Camera.new(
   {
     model: "Panasonic",
     price_per_day: 4,
-    zip_code: "a0a2h2",
+    address: "a0a2h2",
     details: "Perfect for sightseeing! Good picture quality."
   }
 )
@@ -115,4 +115,3 @@ rental_three = Rental.new(
 rental_three.user = user_two
 rental_three.camera = camera_five
 rental_three.save!
-

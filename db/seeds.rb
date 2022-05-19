@@ -32,7 +32,7 @@ camera_one = Camera.new(
   {
     model: "Canon EOS REBEL T7",
     price_per_day: 15,
-    address: "h2l3t4",
+    address: Faker::Address.full_address,
     details: "Comes with 18-55mm f lens. DSLR form factor with fine JPEG quality."
   }
 )
@@ -56,7 +56,7 @@ camera_three = Camera.new(
   {
     model: "Sony Alpha A7C",
     price_per_day: 20,
-    address: "t5t6y6",
+    address: Faker::Address.full_address,
     details: "Compact full-frame camera and lens combo. Very good image quality and noise performance! Great battery life."
   }
 )
@@ -68,7 +68,7 @@ camera_four = Camera.new(
   {
     model: "Fujifilm x100v",
     price_per_day: 30,
-    address: "h4d0p0",
+    address: Faker::Address.full_address,
     details: "Beautiful camera with a vintage look. Great digital travel camera with fixed lens. Easy to use."
   }
 )
@@ -80,7 +80,7 @@ camera_five = Camera.new(
   {
     model: "Pentax K1000",
     price_per_day: 25,
-    address: "a0a2h2",
+    address: Faker::Address.full_address,
     details: "Fully manual 35mm SLR, uses Kodak Plus-X 125 film. Takes beautiful photos. Excellent camera for all users."
 
   }

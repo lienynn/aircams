@@ -1,11 +1,21 @@
-<h1>Rental summary:</h1>
+<h1>Rental summary for:<%= @rental.camera.model %></h1>
 
-<p><%= @rental.camera.model %></p>
+
 <p><%= @rental.camera.details %></p>
-<p>From: <%= @rental.start_date %></p>
-<p>Until: <%= @rental.end_date %></p>
+<p>From:<%= @rental.start_date %></p>
+<p>Until:<%= @rental.end_date %></p>
+<p>Current Status:<%= @rental.status %></p>
 
-<%= link_to "Cancel request", rental_path(@rental),
+<% if current_user == @rental.user %>
+  <p>you are the Renter !</p>
+  <%= link_to "Cancel my request",
+              rental_path(@rental),
               method: :delete,
               data: { confirm: "Are you sure?" } %>
-<%= link_to "Back to cameras", cameras_path %>
+  <%= link_to "Back to All cameras", cameras_path %>
+<% else %>
+  <p>you are the Owner !</p>
+  <%= link_to "Approve request", rental_accepted_path(@rental) %>
+  <%= link_to "Decline request", rental_declined_path(@rental) %>
+  <%= link_to "Back to my cameras", my_cameras_path %>
+<% end %>

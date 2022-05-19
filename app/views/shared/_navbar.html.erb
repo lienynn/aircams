@@ -23,8 +23,8 @@
               <p>Welcome <%= current_user.email %>!</p>
               <%= link_to "Add a camera", new_camera_path, class: "dropdown-item" %>
               <%= link_to "Rent a camera", cameras_path , class: "dropdown-item" %>
-              <%= link_to "Your cameras", my_cameras_path, class: "dropdown-item" %>
-              <%= link_to "Your rentals", "/rentals", class: "dropdown-item" %>
+              <%= link_to "My listings", my_cameras_path, class: "dropdown-item" %>
+              <%= link_to "My rentals", "/rentals", class: "dropdown-item" %>
 
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>

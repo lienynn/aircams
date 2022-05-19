@@ -4,7 +4,7 @@ class Camera < ApplicationRecord
 
   validates :model, presence: true
   validates :price_per_day, presence: true
-  validates :address, presence: true
+  validates :address, presence: true, uniqueness: true
   validates :details, presence: true, length: { minimum: 20 }
 
   has_one_attached :photo

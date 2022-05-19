@@ -11,10 +11,29 @@ export default class extends Controller {
   pickerLoader() {
     flatpickr(".datepicker", {
       minDate: "today",
-      onChange: function(selectedDates) {
-        console.log(selectedDates)
+      dateFormat: 'n/j/Y',
+      onClose: function(selectedDates, dateStr, instance) {
+        let daysInRange = document.getElementsByClassName('inRange');
+        let daysLengthTotal = daysInRange.length + 1;
+        console.log(daysLengthTotal);
       }
     });
+
+
+    // flatpickr(".start_datepicker", {
+    //   minDate: "today",
+    //   onChange: function(selectedDates, dateStr) {
+    //     const start_date = dateStr
+    //   }
+    // });
+
+    // flatpickr(".end_datepicker", {
+    //   minDate: "today",
+    //   onChange: function(selectedDates, dateStr) {
+    //     const end_date = dateStr
+    //   }
+    // });
   }
+
 
 }

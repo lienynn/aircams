@@ -53,6 +53,23 @@
     color: #7F8487;
 }
 
+
+// Card category
+
+.card-category {
+  background-size: cover;
+  background-position: center;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
 .card-trip {
     overflow: hidden;
     background: white;
@@ -100,8 +117,15 @@
 }
 
 .card-trip-infos .card-trip-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
+
     position: absolute;
     right: 16px;
     top: -20px;
     width: 40px;
 }
+

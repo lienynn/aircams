@@ -2,7 +2,7 @@
 
   <div class="container">
     <div class="centering-cards">
-      <%= link_to "Add A Camera", new_camera_path, class: "btn btn-outline-success" %>
+      <%= link_to "Add A Camera", new_camera_path, class: "btn btn-flat" %>
         <% @cameras.each do |camera| %>
           <div class="card-product">
             <% if !camera.photo.key.nil? %>
@@ -11,12 +11,12 @@
             <div class="card-product-infos">
               <h2><%= link_to camera.model, camera_path(camera) %></h2>
               <p><%= camera.details %></p>
-              <p class="update-edit-links"><%= link_to "edit", edit_camera_path(camera) %></p>
+              <p class="update-edit-links"><%= link_to "EDIT", edit_camera_path(camera) %></p>
                 <% if camera.rentals.blank? %>
-                  <p><%= link_to "remove",
+                  <p class="update-edit-links"><%= link_to "REMOVE",
                     camera_path(camera),
                     method: :delete,
-                    data: { confirm: "Are you sure?" }, class: "update-edit-links" %>
+                    data: { confirm: "Are you sure?" } %>
                   </p>
                 <% end %>
                 <h6><%= link_to "#{camera.rentals.size} rental(s)", my_camera_rentals_path(camera) %></h6>

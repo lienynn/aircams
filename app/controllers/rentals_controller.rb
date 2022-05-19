@@ -48,6 +48,15 @@ class RentalsController < ApplicationController
     render :show
   end
 
+  def my_owner_rentals
+    @my_owner_rentals = current_user.owner_rentals
+  end
+
+  def my_camera_rentals
+    @camera = Camera.find(params[:id])
+    @rentals = @camera.rentals
+  end
+
   private
 
   def rental_params

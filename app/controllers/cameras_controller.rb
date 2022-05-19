@@ -1,6 +1,13 @@
 class CamerasController < ApplicationController
   def index
     @cameras = Camera.all
+
+    @markers = @cameras.geocoded.map do |camera|
+      {
+        lat: camera.latitude,
+        lng: camera.longitude
+      }
+    end
   end
 
   def show

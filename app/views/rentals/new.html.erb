@@ -6,6 +6,20 @@
     <%= f.input :end_date, as: :string, input_html: {id: "end_datepicker"} %>
     <%= f.submit "Submit request", class: "btn btn-primary" %>
   <% end %>
+
 </div>
+
+<!-- To display the calculated total price -->
+<div>
+  <p>Daily price:
+    <span id="daily-price">
+    <%= @camera.price_per_day %>
+    </span>
+    CAD
+  </p>
+
+  <p id="total-price"></p>
+</div>
+
 
 <%= link_to "Back to cameras", cameras_path %>

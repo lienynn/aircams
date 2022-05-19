@@ -15,10 +15,11 @@ export default class extends Controller {
       // dateFormat: 'n/j/Y',
       "plugins": [new rangePlugin({ input: '#end_datepicker'})],
       onChange: function(selectedDates, dateStr, instance) {
-        console.log(selectedDates)
         let daysInRange = document.getElementsByClassName('inRange');
         let daysLength = daysInRange.length + 1
-        console.log(daysLength);
+        let daily_price = document.getElementById('daily-price').innerText
+        let total_price = daily_price * daysLength
+        document.getElementById('total-price').innerText = `Total price: ${total_price} CAD`
       }
     });
   }

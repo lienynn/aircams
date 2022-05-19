@@ -1,6 +1,10 @@
 class CamerasController < ApplicationController
   def index
-    @cameras = Camera.all
+    if params[:query].present?
+      @cameras = Camera.search_by_model_and_address(params[:query])
+    else
+      @cameras = Camera.all
+    end
 
     @markers = @cameras.geocoded.map do |camera|
       {

@@ -1,12 +1,9 @@
-<%= simple_form_for(@camera) do |f| %>
-  <%= f.label :model %>
-  <%= f.text_field :model %>
-  <%= f.label :zip_code %>
-  <%= f.text_field :zip_code %>
-    <%= f.label :details %>
-  <%= f.text_field :details %>
-  <%= f.label :price_per_day %>
-  <%= f.number_field :price_per_day %>
+<%= simple_form_for [ @camera ] do |f| %>
+
+  <%= f.input :model %>
+  <%= f.input :address %>
+  <%= f.input :details %>
+  <%= f.input :price_per_day %>
   <%= f.input :photo, as: :file %>
 
   <%# Will need to add picture %>

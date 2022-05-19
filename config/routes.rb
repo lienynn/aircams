@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   end
 
   get 'my_cameras', to: 'cameras#my_cameras'
+  get 'my_owner_rentals', to: 'rentals#my_owner_rentals'
+  get 'my_camera_rentals/:id', to: 'rentals#my_camera_rentals', as: :my_camera_rentals
 
   resources :rentals, only: [ :index, :show, :destroy ] do
     get 'acepted!', to: 'rentals#accepted!', as: :accepted

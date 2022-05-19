@@ -10,9 +10,7 @@ export default class extends Controller {
 
   pickerLoader() {
     flatpickr("#start_datepicker", {
-      // mode: "range",
       minDate: "today",
-      // dateFormat: 'n/j/Y',
       "plugins": [new rangePlugin({ input: '#end_datepicker'})],
       onChange: function(selectedDates, dateStr, instance) {
         let daysInRange = document.getElementsByClassName('inRange');

@@ -1,9 +1,11 @@
 <h1>Book camera</h1>
 
 <%= simple_form_for [ @camera, @rental ] do |f| %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
-  <%= f.submit "Submit request", class: "btn btn-primary" %>
+  <div class="form-inputs" data-controller="new-rental", data-action="click->new-rental#calc">
+    <%= f.input :start_date, input_html: { "data-new-rental-target" => "start_date" } %>
+    <%= f.input :end_date, input_html: { "data-new-rental-target" => "end_date" } %>
+    <%= f.submit "Submit request", class: "btn btn-primary" %>
+  </div>
 <% end %>
 
 <%= link_to "Back to cameras", cameras_path %>

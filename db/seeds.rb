@@ -30,57 +30,62 @@ user_two = User.create!(
 # cameras
 camera_one = Camera.new(
   {
-    model: "Canon",
-    price_per_day: 25,
-    address: "h2l3t4",
-    details: "State: like new, 5mm lense. Film available to buy everywhere. Solid make perfetc for traveling."
+    model: "Canon EOS REBEL T7",
+    price_per_day: 15,
+    address: Faker::Address.full_address,
+    details: "Comes with 18-55mm f lens. DSLR form factor with fine JPEG quality."
   }
 )
+camera_one.photo.attach(io: File.open('app/assets/images/canonrebel.png'), filename: 'canonrebel.png')
 camera_one.user = user_one
 camera_one.save!
 
 camera_two = Camera.new(
   {
-    model: "Nikon",
-    price_per_day: 10,
+    model: "Nikon F",
+    price_per_day: 20,
     address: "j1j3a3",
-    details: "Vintage camera. Awesome for old pictures like style."
+    details: "Vintage camera. Comes with original finder and Nikkor-S 50mm lens."
   }
 )
+camera_two.photo.attach(io: File.open('app/assets/images/nikonf.png'), filename: 'nikonf.png')
 camera_two.user = user_two
 camera_two.save!
 
 camera_three = Camera.new(
   {
-    model: "Sony",
+    model: "Sony Alpha A7C",
     price_per_day: 20,
-    address: "t5t6y6",
-    details: "Brand new, comes with all types of lenses."
+    address: Faker::Address.full_address,
+    details: "Compact full-frame camera and lens combo. Very good image quality and noise performance! Great battery life."
   }
 )
+camera_three.photo.attach(io: File.open('app/assets/images/sonyalphaa7c.png'), filename: 'sonyalphaa7c.png')
 camera_three.user = user_two
 camera_three.save!
 
 camera_four = Camera.new(
   {
-    model: "Fujifilm",
-    price_per_day: 5,
-    address: "h4d0p0",
-    details: "Nice camera. Perfect for travel memories and night pictures."
+    model: "Fujifilm x100v",
+    price_per_day: 30,
+    address: Faker::Address.full_address,
+    details: "Beautiful camera with a vintage look. Great digital travel camera with fixed lens. Easy to use."
   }
 )
-
+camera_four.photo.attach(io: File.open('app/assets/images/pentaxk1000.png'), filename: 'pentaxk1000.png')
 camera_four.user = user_one
 camera_four.save!
 
 camera_five = Camera.new(
   {
-    model: "Panasonic",
-    price_per_day: 4,
-    address: "a0a2h2",
-    details: "Perfect for sightseeing! Good picture quality."
+    model: "Pentax K1000",
+    price_per_day: 25,
+    address: Faker::Address.full_address,
+    details: "Fully manual 35mm SLR, uses Kodak Plus-X 125 film. Takes beautiful photos. Excellent camera for all users."
+
   }
 )
+camera_five.photo.attach(io: File.open('app/assets/images/fujifilmx100v.png'), filename: 'fujifilmx100v.png')
 camera_five.user = user_one
 camera_five.save!
 

@@ -1,21 +1,31 @@
-<h1>Rental summary for:<%= @rental.camera.model %></h1>
 
 
-<p><%= @rental.camera.details %></p>
-<p>From:<%= @rental.start_date %></p>
-<p>Until:<%= @rental.end_date %></p>
-<p>Current Status:<%= @rental.status %></p>
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @camera.photo.key, height: 500, crop: :fill %>')">
+  <h1>Rental summary</h1>
+</div>
 
-<% if current_user == @rental.user %>
-  <p>you are the Renter !</p>
-  <%= link_to "Cancel my request",
-              rental_path(@rental),
-              method: :delete,
-              data: { confirm: "Are you sure?" } %>
-  <%= link_to "Back to All cameras", cameras_path %>
-<% else %>
-  <p>you are the Owner !</p>
-  <%= link_to "Approve request", rental_accepted_path(@rental) %>
-  <%= link_to "Decline request", rental_declined_path(@rental) %>
-  <%= link_to "Back to my cameras", my_cameras_path %>
-<% end %>
+<div>
+  <h2>Rental Details</h2>
+    <p>Camera Model: <%= @rental.camera.model %></p>
+    <p>Camera Description : <%= @rental.camera.details %></p>
+  <h3> Dates </h3>
+    <p>From: <strong><%= @rental.start_date %></strong></p>
+    <p>Until: <strong><%= @rental.start_date %></strong></p>
+  <h3>Status of the Request</h3>
+    <h4 class="status"><strong><%= @rental.status %></strong></h4>
+</div>
+
+<div>
+  <% if current_user == @rental.user %>
+    <p>Thank you for your request :) !</p>
+    <%= link_to "Cancel my request",
+                rental_path(@rental),class: "btn btn-gradient Decline",
+                method: :delete,
+                data: { confirm: "Are you sure?" } %>
+    <%= link_to "Back to All cameras", cameras_path, class: "btn btn-ghost" %>
+  <% else %>
+    <%= link_to "Approve request", rental_accepted_path(@rental), class: "btn btn-gradient Approve" %>
+    <%= link_to "Decline request", rental_declined_path(@rental), class: "btn btn-gradient Decline"  %> <br>
+    <%= link_to "Back to my cameras", my_cameras_path, class: "btn btn-ghost"  %>
+  <% end %>
+</div>

@@ -2,10 +2,23 @@
 
 <div class="form-wrapper" style="width: 400px; margin: 0 auto;" data-controller="flatpickr">
   <%= simple_form_for [ @camera, @rental ] do |f| %>
-    <%= f.input :start_date, as: :string, input_html: {class: "datepicker"} %>
-    <%= f.input :end_date, as: :string, input_html: {class: "datepicker"} %>
+    <%= f.input :start_date, as: :string, input_html: {id: "start_datepicker"} %>
+    <%= f.input :end_date, as: :string, input_html: {id: "end_datepicker"} %>
     <%= f.submit "Submit request", class: "btn btn-primary" %>
   <% end %>
 </div>
+
+<!-- To display the calculated total price -->
+<div style="width: 400px; margin: 20px auto;">
+  <p>Daily price:
+    <span id="daily-price">
+    <%= @camera.price_per_day %>
+    </span>
+    CAD
+  </p>
+
+  <p id="total-price"></p>
+</div>
+
 
 <%= link_to "Back to cameras", cameras_path %>

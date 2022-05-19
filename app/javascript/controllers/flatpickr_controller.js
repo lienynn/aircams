@@ -1,20 +1,24 @@
 import { Controller } from "@hotwired/stimulus"
 import flatpickr from "flatpickr";
+import rangePlugin from 'flatpickr/dist/plugins/rangePlugin';
 
 export default class extends Controller {
 
   connect() {
-    console.log("connected")
     this.pickerLoader()
   }
 
   pickerLoader() {
-    flatpickr(".datepicker", {
+    flatpickr("#start_datepicker", {
       minDate: "today",
-      onChange: function(selectedDates) {
-        console.log(selectedDates)
+      "plugins": [new rangePlugin({ input: '#end_datepicker'})],
+      onChange: function(selectedDates, dateStr, instance) {
+        let daysInRange = document.getElementsByClassName('inRange');
+        let daysLength = daysInRange.length + 1
+        let daily_price = document.getElementById('daily-price').innerText
+        let total_price = daily_price * daysLength
+        document.getElementById('total-price').innerText = `Total price: ${total_price} CAD`
       }
     });
   }
-
 }

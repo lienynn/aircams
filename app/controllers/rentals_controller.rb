@@ -15,12 +15,14 @@ class RentalsController < ApplicationController
   def create
     @rental = Rental.new(rental_params)
     @camera = Camera.find(params[:camera_id])
-    @user = User.find(current_user.id)
     @rental.camera = @camera
-    @rental.user = @user
-    @rental.save
+    @rental.user = current_user
 
-    redirect_to rental_path(@rental)
+    if @rental.save
+      redirect_to rental_path(@rental)
+    else
+      render :new
+    end
   end
 
   def destroy

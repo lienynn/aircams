@@ -1,16 +1,39 @@
-<h1>All Available Cameras</h1>
+<h1 class="text-center my-3" >All Available Cameras</h1>
 
-  <% @cameras.each do |camera| %>
-    <div class="card-product">
-          <% if !camera.photo.key.nil? %>
-          <img src= "<%= cl_image_path (camera.photo.key)%>">
-          <% end %>
-      <div class="card-product-infos">
-        <h2><%= link_to camera.model, camera_path(camera) %></h2>
-          <p><%= camera.details %></p>
+<%= form_tag cameras_path, method: :get do %>
+  <div class="search-form-control form-group" style="width: 600px; margin: 0 auto;">
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Search cameras..."
+    %>
+    <%= submit_tag "Find", class: "btn btn-flat" %>
+  </div>
+<% end %>
+
+
+<div class="container">
+  <div class="row">
+    <% @cameras.each do |camera| %>
+    <div class="col-4 col-md-6 my-3">
+      <div class="card-trip">
+            <% if !camera.photo.key.nil? %>
+            <img src= "<%= cl_image_path (camera.photo.key)%>">
+            <% end %>
+        <div class="m-3">
+          <div class="d-flex justify-content-between">
+            <h2><%= link_to camera.model, camera_path(camera) %></h2>
+            <h2 class="price-label"><%= " $#{camera.price_per_day} CAD/day" %></h2>
+          </div>
+          <div class="pt-2">
+            <p><%= camera.details %></p>
+          </div>
+        </div>
       </div>
     </div>
-  <% end %>
+    <% end %>
+  </div>
+</div>
 
 <div style="width: 100%; height: 600px;"
   data-controller="mapbox"

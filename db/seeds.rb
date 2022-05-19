@@ -48,7 +48,7 @@ camera_two = Camera.new(
     details: "Vintage camera. Comes with original finder and Nikkor-S 50mm lens."
   }
 )
-camera_two.photo.attach(io: File.open('app/assets/images/nikonf.png'), filename: 'nikonf.png')
+camera_two.photo.attach(io: File.open('app/assets/images/nikonf.jpeg'), filename: 'nikonf.jpeg')
 camera_two.user = user_two
 camera_two.save!
 
@@ -72,7 +72,7 @@ camera_four = Camera.new(
     details: "Beautiful camera with a vintage look. Great digital travel camera with fixed lens. Easy to use."
   }
 )
-camera_four.photo.attach(io: File.open('app/assets/images/pentaxk1000.png'), filename: 'pentaxk1000.png')
+camera_four.photo.attach(io: File.open('app/assets/images/fujifilmx100v.jpeg'), filename: 'fujifilmx100v.jpeg')
 camera_four.user = user_one
 camera_four.save!
 
@@ -85,7 +85,7 @@ camera_five = Camera.new(
 
   }
 )
-camera_five.photo.attach(io: File.open('app/assets/images/fujifilmx100v.png'), filename: 'fujifilmx100v.png')
+camera_five.photo.attach(io: File.open('app/assets/images/pentaxk1000.jpeg'), filename: 'pentaxk1000.jpeg')
 camera_five.user = user_one
 camera_five.save!
 

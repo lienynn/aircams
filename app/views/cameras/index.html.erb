@@ -1,12 +1,13 @@
 <h1>All Available Cameras</h1>
- <h2><%= link_to "Add A Camera", new_camera_path %></h2>
 
   <% @cameras.each do |camera| %>
     <div class="card-product">
-      <img src="#" />
+          <% if !camera.photo.key.nil? %>
+          <img src= "<%= cl_image_path (camera.photo.key)%>">
+          <% end %>
       <div class="card-product-infos">
         <h2><%= link_to camera.model, camera_path(camera) %></h2>
-        <p><%= camera.details %></p>
+          <p><%= camera.details %></p>
       </div>
     </div>
   <% end %>

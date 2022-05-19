@@ -28,6 +28,7 @@ class RentalsController < ApplicationController
 
   def destroy
     @rental = Rental.find(params[:id])
+    @camera = @rental.camera
     @rental.destroy
 
     redirect_to rentals_path
@@ -35,16 +36,20 @@ class RentalsController < ApplicationController
 
   def accepted!
     @rental = Rental.find(params[:rental_id])
+    @camera = @rental.camera
     @rental.status = 1
     @rental.save
+    @color = "green"
 
     render :show
   end
 
   def declined!
     @rental = Rental.find(params[:rental_id])
+    @camera = @rental.camera
     @rental.status = 2
     @rental.save
+    @color = "red"
 
     render :show
   end

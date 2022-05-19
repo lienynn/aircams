@@ -12,7 +12,11 @@
     <p>From: <strong><%= @rental.start_date %></strong></p>
     <p>Until: <strong><%= @rental.start_date %></strong></p>
   <h3>Status of the Request</h3>
-    <h4 class="status"><strong><%= @rental.status %></strong></h4>
+    <% if @rental.pending? %>
+      <h4 class="status orange"><strong><%= @rental.status %></strong></h4>
+    <% else  %>
+      <h4 class="status <%= @color %>"><strong><%= @rental.status %></strong></h4>
+    <% end %>
 </div>
 
 <div>
@@ -25,7 +29,7 @@
     <%= link_to "Back to All cameras", cameras_path, class: "btn btn-ghost" %>
   <% else %>
     <%= link_to "Approve request", rental_accepted_path(@rental), class: "btn btn-gradient Approve" %>
-    <%= link_to "Decline request", rental_declined_path(@rental), class: "btn btn-gradient Decline"  %> <br>
+    <%= link_to "Decline request", rental_declined_path(@rental), class: "btn btn-gradient Decline"%> <br>
     <%= link_to "Back to my cameras", my_cameras_path, class: "btn btn-ghost"  %>
   <% end %>
 </div>

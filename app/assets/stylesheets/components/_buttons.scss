@@ -52,4 +52,22 @@
 
 .status{
   border: 2px solid black;
+  width: fit-content;
+  padding: 10px;
+  block-size: fit-content
+}
+
+.green{
+  color: #2a9d30;
+  border: 2px solid #2a9d30;;
+}
+
+.red{
+  color: #9e1a1a;
+  border: 2px solid #9e1a1a;
+}
+
+.orange{
+  color: #e77d27;
+  border: 2px solid #e77d27;
 }

@@ -44,7 +44,7 @@ camera_two = Camera.new(
   {
     model: "Nikon F",
     price_per_day: 20,
-    address: "j1j3a3",
+    address: Faker::Address.full_address,
     details: "Vintage camera. Comes with original finder and Nikkor-S 50mm lens."
   }
 )

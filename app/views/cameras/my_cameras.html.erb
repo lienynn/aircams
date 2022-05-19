@@ -1,38 +1,41 @@
 <h1>My Listings</h1>
- <%= link_to "Add A Camera", new_camera_path, class: "btn btn-outline-success" %>
 
   <div class="container">
-    <% @cameras.each do |camera| %>
-      <div class="card-product">
-        <% if !camera.photo.key.nil? %>
-            <img src= "<%= cl_image_path (camera.photo.key)%>">
-            <% end %>
-        <div class="card-product-infos">
-          <h2><%= link_to camera.model, camera_path(camera) %></h2>
-          <p><%= camera.details %></p>
-          <p><%= link_to "edit", edit_camera_path(camera) %></p>
-            <% if camera.rentals.blank? %>
-              <p><%= link_to "remove",
-                camera_path(camera),
-                method: :delete,
-                data: { confirm: "Are you sure?" } %>
-              </p>
-            <% end %>
-          <% if camera.rentals.exists? %>
-            <h6> Rentals :</h6>
-            <ul>
-              <% camera.rentals.each do |rental| %>
-                <li>
-                  <p> Status: <%= rental.status %></p>
-                  <p> By: <%= rental.user_id %></p>
-                  <p> from: <%= rental.start_date %></p>
-                  <p> to: <%= rental.end_date %></p>
-                  <p> <%= link_to "See Details", rental_path(rental) %></p>
-                </li>
-              <% end  %>
-            </ul>
-          <% end %>
+    <%= link_to "Add A Camera", new_camera_path, class: "btn btn-outline-success" %>
+      <% @cameras.each do |camera| %>
+        <div class="card-product">
+          <% if !camera.photo.key.nil? %>
+              <img src= "<%= cl_image_path (camera.photo.key)%>">
+              <% end %>
+          <div class="card-product-infos">
+            <h2><%= link_to camera.model, camera_path(camera) %></h2>
+            <p><%= camera.details %></p>
+            <p class="update-edit-links"><%= link_to "edit", edit_camera_path(camera) %></p>
+              <% if camera.rentals.blank? %>
+                <p><%= link_to "remove",
+                  camera_path(camera),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" }, class: "update-edit-links" %>
+                </p>
+              <% end %>
+              <h6><%= link_to "#{camera.rentals.size} rental(s)", my_camera_rentals_path(camera) %></h6>
+          </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
   </div>
+
+
+
+<%# if camera.rentals.exists? %>
+              <ul>
+                <%# camera.rentals.each do |rental| %>
+                  <li>
+                    <p> Status: <%#= rental.status %></p>
+                    <p> By: <%#= rental.user_id %></p>
+                    <p> from: <%#= rental.start_date %></p>
+                    <p> to: <%#= rental.end_date %></p>
+                    <p> <%#= link_to "See Details", rental_path(rental), class: "update-edit-links" %></p>
+                  </li>
+                <%# end  %>
+              </ul>
+            <%# end %>

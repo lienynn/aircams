@@ -2,8 +2,10 @@
 <% if !@camera.photo.key.nil? %>
           <img src= "<%= cl_image_path (@camera.photo.key)%>">
           <% end %>
-<p><%= @camera.details %></p>
-<p><%= @camera.price_per_day %></p>
+<p><%= "Details: #{@camera.details}" %></p>
+<p><%= "Price per day: $#{@camera.price_per_day}" %></p>
+<p> <%= "Address: #{@camera.address}" %></p>
+
 
 <% if current_user != @camera.user %>
  <p><%= link_to "Rent camera", new_camera_rental_path(params[:id]) %></p>

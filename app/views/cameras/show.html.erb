@@ -5,5 +5,7 @@
 <p><%= @camera.details %></p>
 <p><%= @camera.price_per_day %></p>
 
+<% if current_user != @camera.user %>
  <p><%= link_to "Rent camera", new_camera_rental_path(params[:id]) %></p>
- <p><%= link_to "Back to the list", cameras_path %></p>
+<% end %>
+<p><%= link_to "Back to the list", cameras_path %></p>

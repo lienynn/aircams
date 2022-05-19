@@ -1,35 +1,56 @@
 .card-product {
-  overflow: hidden;
-  height: fit-content;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
-  align-items: center;
-  margin: 5px;
+    overflow: hidden;
+    height: 200px;
+    background: white;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    margin: 15px;
+    padding-left: 20px;
+    width: 650px;
+}
+
+.centering-cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .card-product img {
-  height: 100%;
-  width: 120px;
-  object-fit: cover;
+    height: 100%;
+    width: 120px;
+    object-fit: scale-down;
 }
 
 .card-product h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.card-product h6 {
+    margin-top: 10px;
 }
 
 .card-product p {
-  font-size: 12px;
-  line-height: 1.4;
-  opacity: .7;
-  margin-bottom: 0;
-  margin-top: 8px;
+    font-size: 12px;
+    line-height: 1.4;
+    opacity: .7;
+    margin-bottom: 0;
+    margin-top: 8px;
 }
 
 .card-product .card-product-infos {
-  padding: 16px;
+    padding: 16px;
+}
+
+.card-product-infos a {
+    text-decoration: none;
+    color: #180A0A;
+}
+
+.card-product-infos a:hover {
+    color: #7F8487;
 }
 
 
@@ -50,50 +71,49 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 
 .card-trip {
-  overflow: hidden;
-  background: white;
-  width: 400px;
-  height: 300px;
-  font-size: 10;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  margin: 0 auto;
-  border-radius: 25px;
+    overflow: hidden;
+    background: white;
+    width: 400px;
+    height: 300px;
+    font-size: 10;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+    border-radius: 25px;
 }
 
-.card-trip > img {
-  height: 200px;
-  width: 100%;
-  object-fit: scale-down;
-  padding-top: 15px;
-  margin-bottom:15px;
+.card-trip>img {
+    height: 200px;
+    width: 100%;
+    object-fit: scale-down;
+    padding-top: 15px;
+    margin-bottom: 15px;
 }
 
 .card-trip h2 {
-  font-size: 12px;
-  font-weight: bold;
-  margin: 0;
-  min-width: 100px;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 0;
+    min-width: 100px;
 }
 
 .card-trip p {
-  font-size: 12px;
-  opacity: .7;
-  margin: 0;
+    font-size: 12px;
+    opacity: .7;
+    margin: 0;
 }
+
 .card-trip .price-label {
-  font-weight: bold;
-  text-align:right;
-  font-size: 14px;
-
+    font-weight: bold;
+    text-align: right;
+    font-size: 14px;
 }
-
 
 .card-trip .card-trip-infos {
-  padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  position: relative;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
 }
 
 .card-trip-infos .card-trip-user {
@@ -101,5 +121,11 @@
   right: 16px;
   top: -20px;
   width: 40px;
-
 }
+
+    position: absolute;
+    right: 16px;
+    top: -20px;
+    width: 40px;
+}
+

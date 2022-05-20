@@ -1,14 +1,22 @@
-<h1><%= @camera.model%></h1>
-<% if !@camera.photo.key.nil? %>
+<h1 class="text-center my-3"><%= @camera.model%></h1>
+
+<div class="container">
+  <div class="centering-cards">
+    <div class="card-product">
+        <% if !@camera.photo.key.nil? %>
           <img src= "<%= cl_image_path (@camera.photo.key)%>">
-          <% end %>
-
-<p><%= "Details: #{@camera.details}" %></p>
-<p><%= "Price per day: $#{@camera.price_per_day}" %></p>
-<p><%= "Address: #{@camera.address}" %></p>
-
-
-<% if current_user != @camera.user %>
- <p><%= link_to "Rent camera", new_camera_rental_path(params[:id]) %></p>
-<% end %>
-<p><%= link_to "Back to the list", cameras_path %></p>
+        <% end %>
+          <div class="card-product-infos">
+            <%# <div class="bold-text-card-details"> %>
+              <p><span class="bold-text-card-details">Details: </span><%= @camera.details %></p>
+              <p><span class="bold-text-card-details">Price per day: </span><%= @camera.price_per_day %></p>
+              <p><span class="bold-text-card-details">Address: </span><%= @camera.address %></p>
+            <%# </div> %>
+              <% if current_user != @camera.user %>
+                <p class="update-edit-links"><%= link_to "RENT A CAMERA", new_camera_rental_path(params[:id]) %></p>
+              <% end %>
+              <p class="update-edit-links"><%= link_to "BACK TO LIST", cameras_path %></p>
+          </div>
+    </div>
+  </div>
+</div>

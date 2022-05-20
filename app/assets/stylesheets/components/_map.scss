@@ -6,3 +6,13 @@
   text-align: center;
   font-family: "Open Sans", sans-serif;
 }
+
+
+.popup-focus {
+  color: rgb(12, 12, 12);
+  text-decoration: none;
+  margin: 2px;
+  &:focus {
+    outline: 0;
+  }
+}

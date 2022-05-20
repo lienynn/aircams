@@ -8,13 +8,15 @@
   <div class="row justify-content-center m-3 ">
     <div class="col-10 ">
       <div class="row justify-content-start border-solid  ">
-        <div class="col-6  ">
+        <div class="col-6">
           <h2>Rental Details</h2>
             <p><%= @rental.camera.model %></p>
             <p><%= @rental.camera.details %></p>
           <h3> Dates </h3>
             <p>From: <strong><%= @rental.start_date %></strong></p>
             <p>Until: <strong><%= @rental.end_date %></strong></p>
+          <h3> Total Price </h3>
+            <p> $<%= (@rental.end_date - @rental.start_date).to_i * @rental.camera.price_per_day %> CAD</p>
         </div>
         <div class="col-6  d-flex flex-column justify-content-center align-items-center ">
           <h3>Status of the Request</h3>

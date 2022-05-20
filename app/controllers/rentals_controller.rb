@@ -39,7 +39,7 @@ class RentalsController < ApplicationController
     @camera = @rental.camera
     @rental.status = 1
     @rental.save
-    @color = "green"
+    # @color = "green"
 
     render :show
   end
@@ -49,7 +49,7 @@ class RentalsController < ApplicationController
     @camera = @rental.camera
     @rental.status = 2
     @rental.save
-    @color = "red"
+    # @color = "red"
 
     render :show
   end

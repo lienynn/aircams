@@ -4,32 +4,53 @@
   <h1>Rental summary</h1>
 </div>
 
-<div>
-  <h2>Rental Details</h2>
-    <p>Camera Model: <%= @rental.camera.model %></p>
-    <p>Camera Description : <%= @rental.camera.details %></p>
-  <h3> Dates </h3>
-    <p>From: <strong><%= @rental.start_date %></strong></p>
-    <p>Until: <strong><%= @rental.start_date %></strong></p>
-  <h3>Status of the Request</h3>
-    <% if @rental.pending? %>
-      <h4 class="status orange"><strong><%= @rental.status %></strong></h4>
-    <% else  %>
-      <h4 class="status <%= @color %>"><strong><%= @rental.status %></strong></h4>
-    <% end %>
-</div>
+<div class="container">
+  <div class="row justify-content-center m-3 ">
+    <div class="col-10 ">
+      <div class="row justify-content-start border-solid  ">
+        <div class="col-6  ">
+          <h2>Rental Details</h2>
+            <p><%= @rental.camera.model %></p>
+            <p><%= @rental.camera.details %></p>
+          <h3> Dates </h3>
+            <p>From: <strong><%= @rental.start_date %></strong></p>
+            <p>Until: <strong><%= @rental.start_date %></strong></p>
+        </div>
+        <div class="col-6  d-flex flex-column justify-content-center align-items-center ">
+          <h3>Status of the Request</h3>
+          <% if @rental.pending? %>
+            <p class="status-orange"><%= @rental.status %></p>
+          <% elsif @rental.accepted? %>
+            <p class="status-green"><%= @rental.status %></p>
+          <% elsif @rental.declined?%>
+            <p class="status-red"><%= @rental.status %></p>
+          <% end %>
+        <div>
+      </div>
+     </div>
+   </div>
 
-<div>
-  <% if current_user == @rental.user %>
-    <p>Thank you for your request :) !</p>
-    <%= link_to "Cancel my request",
-                rental_path(@rental),class: "btn btn-gradient Decline",
-                method: :delete,
-                data: { confirm: "Are you sure?" } %>
-    <%= link_to "Back to All cameras", cameras_path, class: "btn btn-ghost" %>
-  <% else %>
-    <%= link_to "Approve request", rental_accepted_path(@rental), class: "btn btn-gradient Approve" %>
-    <%= link_to "Decline request", rental_declined_path(@rental), class: "btn btn-gradient Decline"%> <br>
-    <%= link_to "Back to my cameras", my_cameras_path, class: "btn btn-ghost"  %>
-  <% end %>
+  <div class="row justify-content-center ">
+    <div class="col-12 d-flex justify-content-around m-5">
+      <% if current_user == @rental.user %>
+          <%= link_to "Cancel my request",
+                        rental_path(@rental),class: "btn btn-gradient Decline",
+                        method: :delete,
+                        data: { confirm: "Are you sure?" } %>
+        <% else %>
+          <%= link_to "Approve request", rental_accepted_path(@rental), class: "btn btn-gradient Approve" %>
+          <%= link_to "Decline request", rental_declined_path(@rental), class: "btn btn-gradient Decline"%>
+        <% end %>
+    </div>
+  </div>
+
+  <div class="row justify-content-center  ">
+    <div class="col-12 d-flex justify-content-center m-3">
+      <% if current_user == @rental.user %>
+          <%= link_to "Back to All cameras", cameras_path, class: "btn btn-ghost" %>
+        <% else %>
+          <%= link_to "Back to my cameras", my_cameras_path, class: "btn btn-ghost"  %>
+        <% end %>
+    </div>
+  </div>
 </div>

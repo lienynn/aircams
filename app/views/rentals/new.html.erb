@@ -1,24 +1,28 @@
-<h1>Book camera</h1>
+<h1 class="text-center mt-3 mb-5">Book camera</h1>
 
-<div class="form-wrapper" style="width: 400px; margin: 0 auto;" data-controller="flatpickr">
-  <%= simple_form_for [ @camera, @rental ] do |f| %>
-    <%= f.input :start_date, as: :string, input_html: {id: "start_datepicker"} %>
-    <%= f.input :end_date, as: :string, input_html: {id: "end_datepicker"} %>
-    <%= f.submit "Submit request", class: "btn btn-primary" %>
-  <% end %>
+<div class="d-flex justify-content-center w-50 mx-auto">
+
+  <div class="form-wrapper" style="width: 400px" data-controller="flatpickr">
+    <%= simple_form_for [ @camera, @rental ] do |f| %>
+      <%= f.input :start_date, as: :string, input_html: {id: "start_datepicker"} %>
+      <%= f.input :end_date, as: :string, input_html: {id: "end_datepicker"} %>
+      <%= f.submit "Submit request", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+
+  <!-- To display the calculated total price -->
+  <div class="price-container">
+    <p>Daily price: $
+      <span id="daily-price">
+        <%= @camera.price_per_day %>
+      </span>
+      CAD
+    </p>
+    <p id="num-days"></p>
+    <p id="total-price"></p>
+  </div>
 </div>
 
-<!-- To display the calculated total price -->
-<div style="width: 400px; margin: 20px auto;">
-  <p>Daily price:
-    <span id="daily-price">
-    <%= @camera.price_per_day %>
-    </span>
-    CAD
-  </p>
-
-  <p id="total-price"></p>
+<div class="text-center m-5">
+  <%= link_to "Back to cameras", cameras_path, class: "text-decoration-none" %>
 </div>
-
-
-<%= link_to "Back to cameras", cameras_path %>

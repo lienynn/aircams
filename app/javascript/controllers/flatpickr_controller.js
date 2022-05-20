@@ -17,7 +17,8 @@ export default class extends Controller {
         let daysLength = daysInRange.length + 1
         let daily_price = document.getElementById('daily-price').innerText
         let total_price = daily_price * daysLength
-        document.getElementById('total-price').innerText = `Total price: ${total_price} CAD`
+        document.getElementById('num-days').innerText = `Renting for: ${daysLength} days`
+        document.getElementById('total-price').innerText = `Total price: $ ${total_price} CAD`
       }
     });
   }

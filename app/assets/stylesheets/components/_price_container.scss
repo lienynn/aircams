@@ -1,0 +1,19 @@
+.price-container {
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 200px;
+  text-align: center;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 8px;
+
+  p {
+    margin-bottom: 20px;
+  }
+}
+
+#total-price {
+  margin-bottom: 20px;
+}

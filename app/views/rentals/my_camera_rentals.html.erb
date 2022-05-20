@@ -1,4 +1,6 @@
-<%= @rentals.each do |rental| %>
-<p><%= rental.camera.model %></p>
-<p><%= rental.user.first_name %></p>
+<% @rentals.each do |rental| %>
+  <div>
+    <p><%= link_to "From #{rental.start_date} - To #{rental.end_date}", rental_path(rental) %></p>
+    <p><%= rental.user.first_name %></p>
+  </div>
 <% end %>

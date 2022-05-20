@@ -3,27 +3,28 @@
   <div class="container">
     <div class="centering-cards">
       <%= link_to "Add A Camera", new_camera_path, class: "btn btn-flat" %>
-        <% @cameras.each do |camera| %>
-          <div class="card-product">
-            <% if !camera.photo.key.nil? %>
-                <img src= "<%= cl_image_path (camera.photo.key)%>">
-                <% end %>
-            <div class="card-product-infos">
-              <h2><%= link_to camera.model, camera_path(camera) %></h2>
-              <p><%= camera.details %></p>
-              <p class="update-edit-links"><%= link_to "EDIT", edit_camera_path(camera) %></p>
-                <% if camera.rentals.blank? %>
-                  <p class="update-edit-links"><%= link_to "REMOVE",
-                    camera_path(camera),
-                    method: :delete,
-                    data: { confirm: "Are you sure?" } %>
-                  </p>
-                <% end %>
-                <h6><%= link_to "#{camera.rentals.size} rental(s)", my_camera_rentals_path(camera) %></h6>
-            </div>
+      <% @cameras.each do |camera| %>
+        <div class="card-product">
+          <% if !camera.photo.key.nil? %>
+              <img src= "<%= cl_image_path (camera.photo.key)%>">
+              <% end %>
+          <div class="card-product-infos">
+            <h2><%= link_to camera.model, camera_path(camera) %></h2>
+            <p><%= camera.details %></p>
+            <p class="update-edit-links"><%= link_to "EDIT", edit_camera_path(camera) %></p>
+              <% if camera.rentals.blank? %>
+                <p class="update-edit-links"><%= link_to "REMOVE",
+                  camera_path(camera),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %>
+                </p>
+              <% end %>
+              <h6><%= link_to "#{camera.rentals.size} rental(s)", my_camera_rentals_path(camera) %></h6>
           </div>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
+    </div>
+    <p class="text-center"><%= link_to "All my camera rentals", my_owner_rentals_path %></p>
   </div>
 
 <%# Keep the logic below %>

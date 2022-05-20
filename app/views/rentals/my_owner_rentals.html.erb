@@ -1,4 +1,6 @@
-<%= @my_owner_rentals.each do |rental| %>
-<p><%= rental.camera.model %></p>
-<p><%= rental.user.first_name %></p>
+<% @my_owner_rentals.each do |rental| %>
+  <div>
+    <h3><%= link_to rental.camera.model, rental_path(rental) %></h3>
+    <p><%= rental.user.first_name %></p>
+  </div>
 <% end %>

@@ -1,6 +1,16 @@
-<% @my_owner_rentals.each do |rental| %>
-  <div>
-    <h3><%= link_to rental.camera.model, rental_path(rental) %></h3>
-    <p><%= rental.user.first_name %></p>
+<h1 class="text-center my-3">My Rentals</h1>
+
+<div class="container d-flex justify-content-center">
+  <div class="card-product card-product-infos">
+    <ul class="list">
+      <% @my_owner_rentals.each do |rental| %>
+        <li class="list-item">
+          <div class="update-edit-links">
+          <%= link_to rental.camera.model, rental_path(rental) %>
+          <p><%= "Requested by : #{rental.user.first_name}" %></p>
+          </div>
+        </li>
+      <% end %>
+    </ul>
   </div>
-<% end %>
+</div>

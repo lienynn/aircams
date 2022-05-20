@@ -1,6 +1,16 @@
-<% @rentals.each do |rental| %>
-  <div>
-    <p><%= link_to "From #{rental.start_date} - To #{rental.end_date}", rental_path(rental) %></p>
-    <p><%= rental.user.first_name %></p>
+<h1 class="text-center my-3">My listings requests</h1>
+
+<div class="container d-flex justify-content-center">
+  <div class="card-product card-product-infos">
+    <ul class="list">
+      <% @rentals.each do |rental| %>
+        <li class="list-item">
+          <div class="update-edit-links">
+          <%= link_to "From #{rental.start_date} - To #{rental.end_date}", rental_path(rental) %>
+          <p><%= "Requested by : #{rental.user.first_name}" %></p>
+          </div>
+        </li>
+      <% end %>
+    </ul>
   </div>
-<% end %>
+</div>

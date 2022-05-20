@@ -20,6 +20,7 @@ class CamerasController < ApplicationController
 
   def show
     @camera = Camera.find(params[:id])
+    @rental = Rental.new
   end
 
   def edit

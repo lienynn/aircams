@@ -22,7 +22,7 @@
             <% end %>
         <div class="m-3">
           <div class="d-flex justify-content-between">
-            <h2><%= link_to camera.model, camera_path(camera) %></h2>
+            <h2><%= link_to camera.model, camera_path(camera), class: "no-text-dec" %></h2>
             <h2 class="price-label"><%= " $#{camera.price_per_day} CAD/day" %></h2>
           </div>
           <div class="pt-2">

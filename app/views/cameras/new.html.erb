@@ -1,11 +1,17 @@
-<%= simple_form_for [ @camera ] do |f| %>
+<h1 class="text-center mt-3 mb-5">Add a camera</h1>
 
-  <%= f.input :model %>
-  <%= f.input :address %>
-  <%= f.input :details %>
-  <%= f.input :price_per_day %>
-  <%= f.input :photo, as: :file %>
+<div class="d-flex justify-content-center w-75 mx-auto">
+  <div class="form-wrapper" style="width: 500px">
+    <%= simple_form_for [ @camera ] do |f| %>
 
-  <%# Will need to add picture %>
-  <%= f.submit "Add a camera", class:"btn btn-success" %>
-<% end %>
+      <%= f.input :model %>
+      <%= f.input :address %>
+      <%= f.input :details %>
+      <%= f.input :price_per_day %>
+      <%= f.input :photo, as: :file %>
+
+      <%# Will need to add picture %>
+      <%= f.submit "Add camera", class:"btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

@@ -1,4 +1,6 @@
 class CamerasController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
     if params[:query].present?
       @cameras = Camera.search_by_model_and_address(params[:query])

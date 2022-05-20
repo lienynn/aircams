@@ -13,7 +13,7 @@
               <p><span class="bold-text-card-details">Address: </span><%= @camera.address %></p>
             <%# </div> %>
               <% if current_user != @camera.user %>
-                <p class="update-edit-links"><%= link_to "RENT A CAMERA", new_camera_rental_path(params[:id]) %></p>
+                <p class="update-edit-links"><%= link_to "RENT CAMERA", new_camera_rental_path(params[:id]) %></p>
               <% end %>
               <p class="update-edit-links"><%= link_to "BACK TO LIST", cameras_path %></p>
           </div>

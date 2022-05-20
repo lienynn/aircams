@@ -1,2 +1,5 @@
-<h2><%= camera.model %></h2>
-<p>Price per day : <%= camera.price_per_day %> $</p>
+<div class=border-solid>
+<h6 ><em><%= link_to camera.model, camera_path(camera), class: "popup-focus" %></em></h6>
+<small style="color:gray;"><%= camera.address %></small>
+<p><b><%= camera.price_per_day %> $/day</b></p>
+</div>

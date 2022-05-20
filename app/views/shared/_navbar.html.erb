@@ -18,7 +18,7 @@
             <%= link_to "Home", "/", class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
-            <%= image_tag "https://e7.pngegg.com/pngimages/416/62/png-clipart-anonymous-person-login-google-account-computer-icons-user-activity-miscellaneous-computer.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= image_tag src="Avatar.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <p class="welcome-msg">Welcome <%= current_user.first_name %>!</p>
               <%= link_to "Add a camera", new_camera_path, class: "dropdown-item" %>

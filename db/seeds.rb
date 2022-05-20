@@ -32,7 +32,7 @@ user_two = User.create!(
 user_three = User.create!(
   {
     email: "r@r.r",
-    first_name: "Wagon",
+    first_name: "Lien",
     password: "secret"
   }
 )

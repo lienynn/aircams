@@ -7,11 +7,10 @@
           <img src= "<%= cl_image_path (@camera.photo.key)%>">
         <% end %>
           <div class="card-product-infos">
-            <%# <div class="bold-text-card-details"> %>
               <p><span class="bold-text-card-details">Details: </span><%= @camera.details %></p>
               <p><span class="bold-text-card-details">Price per day: </span><%= @camera.price_per_day %></p>
               <p><span class="bold-text-card-details">Address: </span><%= @camera.address %></p>
-            <%# </div> %>
+
               <p class="update-edit-links"><%= link_to "BACK TO LIST", cameras_path %></p>
           </div>
     </div>

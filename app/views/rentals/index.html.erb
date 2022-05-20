@@ -1,12 +1,21 @@
-<h1>My Rentals</h1>
+<h1 class="text-center my-3">My Rentals</h1>
 
-<% @rentals.each do |rental| %>
-
-  <% if current_user == rental.user %>
-    <h2><%= link_to rental.camera.model, rental_path(rental) %></h2>
-    <p>Details: <%= rental.camera.details %></p>
-    <p>From: <%= rental.start_date %></p>
-    <p>Until: <%= rental.end_date %></p>
-  <% end %>
-
-<% end %>
+<div class="container">
+  <div class="centering-cards">
+    <% @rentals.each do |rental| %>
+      <% if current_user == rental.user %>
+          <div class="card-product">
+            <% if !rental.camera.photo.key.nil? %>
+              <img src= "<%= cl_image_path (rental.camera.photo.key)%>">
+            <% end %>
+            <div class="card-product-infos">
+              <h2><%= link_to rental.camera.model, rental_path(rental) %></h2>
+              <p><%= rental.camera.details %></p>
+              <p>From: <%= rental.start_date %></p>
+              <p>Until: <%= rental.end_date %></p>
+            </div>
+          </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

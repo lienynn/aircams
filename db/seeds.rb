@@ -59,7 +59,7 @@ camera_two = Camera.new(
   }
 )
 camera_two.photo.attach(io: File.open('app/assets/images/nikonf.jpeg'), filename: 'nikonf.jpeg')
-camera_two.user = user_one
+camera_two.user = user_two
 camera_two.save!
 
 camera_three = Camera.new(
@@ -83,7 +83,7 @@ camera_four = Camera.new(
   }
 )
 camera_four.photo.attach(io: File.open('app/assets/images/fujifilmx100v.jpeg'), filename: 'fujifilmx100v.jpeg')
-camera_four.user = user_two
+camera_four.user = user_one
 camera_four.save!
 
 camera_five = Camera.new(
@@ -129,7 +129,7 @@ rental_two = Rental.new(
   }
 )
 rental_two.user = user_three
-rental_two.camera = camera_four
+rental_two.camera = camera_two
 rental_two.save!
 
 rental_three = Rental.new(
@@ -151,7 +151,7 @@ rental_four = Rental.new(
 )
 
 rental_four.user = user_one
-rental_four.camera = camera_four
+rental_four.camera = camera_two
 rental_four.save!
 
 rental_five = Rental.new(

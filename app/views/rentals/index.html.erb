@@ -1,12 +1,17 @@
-<h1>My Rentals</h1>
+<h1 class="text-center my-3">My Rentals</h1>
 
-<% @rentals.each do |rental| %>
+<div class="container">
+  <div class="centering-cards">
+    <% @rentals.each do |rental| %>
+      <%# <div class="card-product"> %>
+        <% if current_user == rental.user %>
+          <h2><%= link_to rental.camera.model, rental_path(rental) %></h2>
+          <p>Details: <%= rental.camera.details %></p>
+          <p>From: <%= rental.start_date %></p>
+          <p>Until: <%= rental.end_date %></p>
+        <% end %>
+      <%# </div> %>
 
-  <% if current_user == rental.user %>
-    <h2><%= link_to rental.camera.model, rental_path(rental) %></h2>
-    <p>Details: <%= rental.camera.details %></p>
-    <p>From: <%= rental.start_date %></p>
-    <p>Until: <%= rental.end_date %></p>
-  <% end %>
-
-<% end %>
+    <% end %>
+  </div>
+</div>

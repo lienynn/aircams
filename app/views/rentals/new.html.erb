@@ -1,4 +1,4 @@
-<h1 class="text-center mb-5">Book camera</h1>
+<h1 class="text-center mt-3 mb-5">Book camera</h1>
 
 <div class="d-flex justify-content-center w-50 mx-auto">
 
@@ -12,12 +12,13 @@
 
   <!-- To display the calculated total price -->
   <div class="price-container">
-    <p>Daily price:
+    <p>Daily price: $
       <span id="daily-price">
         <%= @camera.price_per_day %>
       </span>
       CAD
     </p>
+    <p id="num-days"></p>
     <p id="total-price"></p>
   </div>
 </div>

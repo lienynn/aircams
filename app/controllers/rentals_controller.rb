@@ -8,10 +8,10 @@ class RentalsController < ApplicationController
     @camera = @rental.camera
   end
 
-  def new
-    @camera = Camera.find(params[:camera_id])
-    @rental = Rental.new
-  end
+  # def new
+  #   @camera = Camera.find(params[:camera_id])
+  #   @rental = Rental.new
+  # end
 
   def create
     @rental = Rental.new(rental_params)
@@ -22,7 +22,7 @@ class RentalsController < ApplicationController
     if @rental.save
       redirect_to rental_path(@rental)
     else
-      render :new
+      render 'cameras/show'
     end
   end
 

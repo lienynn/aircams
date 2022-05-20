@@ -12,11 +12,37 @@
               <p><span class="bold-text-card-details">Price per day: </span><%= @camera.price_per_day %></p>
               <p><span class="bold-text-card-details">Address: </span><%= @camera.address %></p>
             <%# </div> %>
-              <% if current_user != @camera.user %>
-                <p class="update-edit-links"><%= link_to "RENT CAMERA", new_camera_rental_path(params[:id]) %></p>
-              <% end %>
               <p class="update-edit-links"><%= link_to "BACK TO LIST", cameras_path %></p>
           </div>
     </div>
   </div>
+
+  <% if current_user != @camera.user %>
+
+    <h2 class="text-center mt-3 mb-5">Book camera</h2>
+
+    <div class="d-flex justify-content-center w-50 mx-auto">
+
+      <div class="form-wrapper" style="width: 400px" data-controller="flatpickr">
+        <%= simple_form_for [ @camera, @rental ] do |f| %>
+          <%= f.input :start_date, as: :string, input_html: {id: "start_datepicker"} %>
+          <%= f.input :end_date, as: :string, input_html: {id: "end_datepicker"} %>
+          <%= f.submit "Submit request", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+
+      <!-- To display the calculated total price -->
+      <div class="price-container">
+        <p>Daily price: $
+          <span id="daily-price">
+            <%= @camera.price_per_day %>
+          </span>
+          CAD
+        </p>
+        <p id="num-days"></p>
+        <p id="total-price"></p>
+      </div>
+    </div>
+  <% end %>
+
 </div>

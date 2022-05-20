@@ -52,6 +52,10 @@ class CamerasController < ApplicationController
     @user = current_user
     @camera.user = @user
 
+    if camera_params[:photo].nil?
+      @camera.photo.attach(io: File.open('app/assets/images/placeholdercamera.png'), filename: 'placeholdercamera.png')
+    end
+
     if @camera.save
       redirect_to camera_path(@camera)
     else
@@ -61,7 +65,6 @@ class CamerasController < ApplicationController
 
   def my_cameras
     @cameras = Camera.where(user: current_user)
-
   end
 
   private
